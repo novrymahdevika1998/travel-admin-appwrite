@@ -75,8 +75,11 @@ const SearchParams = () => {
                         ))}
                     </select>
                 </label>
-                <button>Submit</button>
+                <button className="btn">Submit</button>
             </form>
+
+            <button className="btn btn-primary bg-primary">Hello daisyUI</button>
+
             <Results pets={pets} />
         </div>
     );
