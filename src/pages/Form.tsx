@@ -1,7 +1,8 @@
-import { Button, FormControl, FormErrorMessage, FormHelperText, FormLabel, Input, Stack } from '@chakra-ui/react'
+import { FormControl, FormErrorMessage, FormHelperText, FormLabel, Input, Stack } from '@chakra-ui/react'
 import { z } from 'zod'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { Button } from '@/components/ui/button'
 
 const Form = () => {
 	const schema = z.object({
@@ -40,7 +41,7 @@ const Form = () => {
 
 				{errors.password && <span>{errors.password.message}</span>}
 
-				<Button type='submit'>Submit</Button>
+				<Button variant='destructive' type='submit'>Submit</Button>
 			</Stack>
 		</form>
 	)
