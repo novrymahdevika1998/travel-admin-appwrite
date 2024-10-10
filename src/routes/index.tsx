@@ -5,6 +5,7 @@ import Pet from '../pages/Pet';
 import SearchParams from '../pages/SearchParams';
 import Component from '../pages/Component';
 import DashboardLayout from '../layouts/DashboardLayout';
+import Form from '../pages/Form';
 
 const router = createBrowserRouter([
     {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
             {
                 path: '/component',
                 element: <Component />,
+            },
+            {
+                path: '/form',
+                element: <Form />,
             }
         ]
     },
