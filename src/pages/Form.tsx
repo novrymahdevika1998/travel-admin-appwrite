@@ -41,7 +41,7 @@ const Form = () => {
 
 				{errors.password && <span>{errors.password.message}</span>}
 
-				<Button variant='destructive' type='submit'>Submit</Button>
+				<Button className="" type='submit'>Submit</Button>
 			</Stack>
 		</form>
 	)

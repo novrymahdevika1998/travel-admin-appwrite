@@ -1,3 +1,4 @@
+import { useAuth } from "@/lib/context/JWTContext"
 import { Flex, useColorModeValue, IconButton, HStack, Menu, MenuButton, Avatar, VStack, Box, MenuList, MenuItem, MenuDivider, Text, FlexProps } from "@chakra-ui/react"
 import { FiMenu, FiBell, FiChevronDown } from "react-icons/fi"
 
@@ -6,6 +7,8 @@ interface MobileProps extends FlexProps {
 }
 
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
+    const {logout} = useAuth();
+
     return (
         <Flex
             ml={{ base: 0, md: 60 }}
@@ -67,7 +70,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
                             <MenuItem>Settings</MenuItem>
                             <MenuItem>Billing</MenuItem>
                             <MenuDivider />
-                            <MenuItem>Sign out</MenuItem>
+                            <MenuItem onClick={() => logout()}>Sign out</MenuItem>
                         </MenuList>
                     </Menu>
                 </Flex>
