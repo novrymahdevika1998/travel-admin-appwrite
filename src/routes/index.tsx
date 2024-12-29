@@ -28,6 +28,11 @@ const Upload = Loadable(lazy(() => import('@/sections/Upload')))
 
 const router = createBrowserRouter([
     {
+        path: '/',
+        element: <Navigate to={'auth/login'} replace />,
+        index: true
+    },
+    {
         path: 'auth',
         children: [
             {
