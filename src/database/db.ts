@@ -1,15 +1,15 @@
-import { database, DATABASE_ID_DEV, COLLECTION_ID_CUSTOMERS, COLLECTION_ID_CUSTOMER_SCHEDULES } from "@/lib/appwrite";
+import { database } from "@/lib/appwrite";
 import { ID } from "appwrite";
 
 const collections = [
     {
-        'databaseId': DATABASE_ID_DEV,
-        'id': COLLECTION_ID_CUSTOMERS,
+        'databaseId': import.meta.env.VITE_APPWRITE_DATABASE_ID_DEV,
+        'id': import.meta.env.VITE_APPWRITE_COLLECTION_ID_CUSTOMERS,
         'name': 'customers',
     },
     {
-        'databaseId': DATABASE_ID_DEV,
-        'id': COLLECTION_ID_CUSTOMER_SCHEDULES,
+        'databaseId': import.meta.env.VITE_APPWRITE_DATABASE_ID_DEV,
+        'id': import.meta.env.VITE_APPWRITE_COLLECTION_ID_CUSTOMER_SCHEDULES,
         'name': 'customerSchedules',
     }
 ]
