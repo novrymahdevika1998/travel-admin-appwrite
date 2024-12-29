@@ -1,9 +1,7 @@
 import {
     createBrowserRouter,
     Navigate,
-    useLocation,
 } from 'react-router-dom';
-import Pet from '../pages/Pet';
 import SearchParams from '../pages/SearchParams';
 import Component from '../pages/Component';
 import DashboardLayout from '../layouts/DashboardLayout';
@@ -12,13 +10,13 @@ import Counter from '@/pages/Counter';
 import GuestGuard from '@/guards/GuestGuard';
 import AuthGuard from '@/guards/AuthGuard';
 import { ElementType, lazy, Suspense } from 'react';
-import { useAuth } from '@/lib/context/JWTContext';
+import Page404 from '@/pages/Page404';
 
-const Loadable = (Component: ElementType) => (props: any) => {
+const Loadable = (Component: ElementType) => () => {
 
     return (
         <Suspense fallback={<div>Loading...</div>}>
-            <Component {...props} />
+            <Component />
         </Suspense>
     )
 
@@ -30,15 +28,25 @@ const Upload = Loadable(lazy(() => import('@/sections/Upload')))
 
 const router = createBrowserRouter([
     {
-        path: '/login',
-        element:
-            <GuestGuard>
-                <Login />
-            </GuestGuard>
-        ,
+        path: '/',
+        element: <Navigate to={'auth/login'} replace />,
+        index: true
     },
     {
-        path: '/admin',
+        path: 'auth',
+        children: [
+            {
+                path: 'login',
+                element:
+                    <GuestGuard>
+                        <Login />
+                    </GuestGuard>
+                ,
+            }
+        ]
+    },
+    {
+        path: 'admin',
         element:
             <AuthGuard>
                 <DashboardLayout />
@@ -72,6 +80,7 @@ const router = createBrowserRouter([
             }
         ]
     },
+    { path: '*', element: <Page404 /> }
 ])
 
 export { router }

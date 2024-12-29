@@ -22,10 +22,10 @@ const handleTokenExpired = (exp: number) => {
 
     clearTimeout(expiredTimer);
 
-    expiredTimer = setTimeout(() => {
+    setTimeout(() => {
         localStorage.removeItem('accessToken');
 
-        window.location.href = '/login';
+        window.location.href = 'auth/login';
     }, timeLeft);
 };
 
