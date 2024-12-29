@@ -5,9 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "bunx --bun vite",
-    "build": "tsc -b && vite build",
+    "build": "bunx --bun vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
     "prepare": "husky"
   },
   "husky": {
@@ -30,6 +29,8 @@
     "appwrite": "^16.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "eslint-plugin-react": "^7.37.3",
+    "eslint-plugin-unused-imports": "^4.1.4",
     "framer-motion": "^11.7.0",
     "husky": "^9.1.7",
     "jwt-decode": "^4.0.0",
